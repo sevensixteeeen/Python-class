@@ -44,7 +44,7 @@ print(" Age of the person: ",p1.age)
 ```
 ---
 
-###key points
+### key points
 - without initiated method, it need to set properties manually for each object. 
 - It also use default values for parameters in the initiated method.
 - It can have as many parameters as we need.
