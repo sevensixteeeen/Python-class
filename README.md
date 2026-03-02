@@ -44,3 +44,29 @@ print(" Age of the person: ",p1.age)
 ```
 ---
 
+###key points
+- without initiated method, it need to set properties manually for each object. 
+- It also use default values for parameters in the initiated method.
+- It can have as many parameters as we need.
+
+## Python self parameter
+> The self parameter is a reference to the current instance of the class.
+> It is used to access properties and methods that belong to to the class.
+
+**Ex:**
+```Python
+class people:
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
+        
+    def greet(self):
+        print("helooo, i'am",self.name, "and i am",self.age,"year old")
+
+n=input("enter the name")
+a=int(input("enter the age "))
+p1= people(n,a)
+p1.greet()
+```
+---
+
