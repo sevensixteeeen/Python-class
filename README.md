@@ -22,5 +22,25 @@ cars:                     BMW, Dodge, Land Rover
 
 After creating Objects from a class,it inherits all the variables and functions defined inside that class.
 
+## Python __init__ Method
+>All Classes have a built-in method called __init__ , it execute when the class is being **initiated**
+>it used to assign values to object or perform operations that are necessary when the object is being created.
 
+**ex:**
+```Python
+class person:
+    def __init__ (self,name,age):
+        self.name=name
+        self.age=age
+
+
+n=input("enter the name")
+a=int(input("enter the age "))
+p1= person(n,a)
+
+
+print(" Name of the person: ",p1.name)
+print(" Age of the person: ",p1.age)
+```
+---
 
