@@ -1,0 +1,490 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "3e87382e-ebe0-48ee-bbc2-517dc0bfe934",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "class Myclass:\n",
+    "    x=5"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "42421947-b6a4-4867-88fd-52624e691db7",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Employee Details:\n",
+      "id= 101 Male 50000 4\n",
+      "2022-05-10\n",
+      "id= 102 Female 60000 5\n",
+      "2021-03-15\n",
+      "id= 103 Male 45000 3\n",
+      "2023-01-20\n"
+     ]
+    }
+   ],
+   "source": [
+    "#question 1\n",
+    "class Employee:\n",
+    "\n",
+    "    def __init__(self, emp_id, gender, salary, rating):\n",
+    "        self.emp_id = emp_id\n",
+    "        self.gender = gender\n",
+    "        self.salary = salary\n",
+    "        self.rating = rating\n",
+    "\n",
+    "    def get(self):\n",
+    "        print(\"id=\",self.emp_id, self.gender, self.salary, self.rating)\n",
+    "\n",
+    "class JoiningDetail:\n",
+    "\n",
+    "    def __init__(self, doj):\n",
+    "        self.doj = doj\n",
+    "\n",
+    "    def getDoj(self):\n",
+    "        print(self.doj)\n",
+    "\n",
+    "class Information(Employee, JoiningDetail):\n",
+    "\n",
+    "    def __init__(self, emp_id, gender, salary, rating, doj):\n",
+    "        Employee.__init__(self, emp_id, gender, salary, rating)\n",
+    "        JoiningDetail.__init__(self, doj)\n",
+    "\n",
+    "    def show(self):\n",
+    "        self.get()\n",
+    "        self.getDoj()\n",
+    "\n",
+    "# Creating objects\n",
+    "\n",
+    "e1 = Information(101, \"Male\", 50000, 4, \"2022-05-10\")\n",
+    "e2 = Information(102, \"Female\", 60000, 5, \"2021-03-15\")\n",
+    "e3 = Information(103, \"Male\", 45000, 3, \"2023-01-20\")\n",
+    "\n",
+    "print(\"Employee Details:\")\n",
+    "e1.show()\n",
+    "e2.show()\n",
+    "e3.show()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "62425d5e-d8f1-425d-b92b-84a4e1c1fe51",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "total fare= 1665\n"
+     ]
+    }
+   ],
+   "source": [
+    "#question 2\n",
+    "class vehicle:\n",
+    "    def fare(self,fare):\n",
+    "        return fare\n",
+    "\n",
+    "v=vehicle()\n",
+    "\n",
+    "bus=v.fare(50)\n",
+    "car=v.fare(80)\n",
+    "train=v.fare(110)\n",
+    "truck=v.fare(125)\n",
+    "ship=v.fare(1300)\n",
+    "\n",
+    "total_fare=bus+car+train+truck+ship\n",
+    "print(\"total fare=\",total_fare)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "id": "901d06f6-98e4-4e41-8e40-308fe6f07f79",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "('Balaji', 174)\n"
+     ]
+    }
+   ],
+   "source": [
+    "#question 3\n",
+    "def max_Score(m):\n",
+    "    total = {}\n",
+    "    for match in m:\n",
+    "        for player in m[match]:\n",
+    "            if player in total:\n",
+    "                total[player] += m[match][player]\n",
+    "            else:\n",
+    "                total[player] = m[match][player]\n",
+    "\n",
+    "    top_player = \"\"\n",
+    "    max_score = 0\n",
+    "    \n",
+    "    for player in total:\n",
+    "        if total[player] > max_score:\n",
+    "            max_score = total[player]\n",
+    "            top_player = player\n",
+    "            \n",
+    "    return (top_player, max_score)\n",
+    "\n",
+    "scores = {\n",
+    "\n",
+    "    \"test1\": {\"Dhoni\": 56, \"Balaji\": 94},\n",
+    "\n",
+    "    \"test2\": {\"Balaji\": 80, \"Dravid\": 105}\n",
+    "}\n",
+    "\n",
+    "print(max_Score(scores))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "8d36d492-d4c4-4482-92c2-fba7508c1179",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "First card: 4\n"
+     ]
+    }
+   ],
+   "source": [
+    "#question 4\n",
+    "import random\n",
+    "\n",
+    "cards = [i for i in range(1, 14)] * 4   # deck of 52 cards\n",
+    "random.shuffle(cards)\n",
+    "cards = cards[:8]   # pick 8 random cards\n",
+    "\n",
+    "score = 0\n",
+    "current = cards[0]\n",
+    "print(\"First card:\", current)\n",
+    "\n",
+    "for next_card in cards[1:]:\n",
+    "    guess = input(\"Higher or Lower? (h/l): \").lower()\n",
+    "    print(\"Next card:\", next_card)\n",
+    "\n",
+    "    if (guess == \"h\" and next_card > current) or (guess == \"l\" and next_card < current):\n",
+    "        print(\"Correct! +20\")\n",
+    "        score += 20\n",
+    "    else:\n",
+    "        print(\"Wrong! -15\")\n",
+    "        score -= 15\n",
+    "\n",
+    "    current = next_card\n",
+    "\n",
+    "print(\"Final Score:\", score)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "id": "ae6f53fe-4dc6-45b5-a187-29c0642befe6",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "80\n"
+     ]
+    }
+   ],
+   "source": [
+    "#question 5\n",
+    "car_0 = {}\n",
+    "car_0[\"x_position\"] = 10\n",
+    "car_0[\"y_position\"] = 72\n",
+    "car_0[\"speed\"] = \"medium\"\n",
+    "car_0[\"color\"] = \"red\"\n",
+    "\n",
+    "if car_0[\"speed\"]==\"slow\":\n",
+    "    car_0[\"x_positiom\"]+=2\n",
+    "\n",
+    "elif car_0[\"speed\"]==\"medium\":\n",
+    "    car_0[\"x_position\"]+=9\n",
+    "\n",
+    "else:\n",
+    "    car_0[\"x_position\"]+=22\n",
+    "\n",
+    "print(car+0)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "id": "ce5d119c-dad4-410e-997c-492fcf7aacc2",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Area of Square\n"
+     ]
+    }
+   ],
+   "source": [
+    "#question 6\n",
+    "from abc import ABC, abstractmethod\n",
+    "class Shape(ABC):\n",
+    "    @abstractmethod\n",
+    "    def area(self):\n",
+    "        pass\n",
+    "    class Square(Shape):\n",
+    "        def area(self):\n",
+    "            print(\"Area of Square\")\n",
+    "s = Square()\n",
+    "s.area()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 49,
+   "id": "78378eda-48b0-4714-858a-679bb9e6095c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Animal: sound\n",
+      "Dog:    barks\n"
+     ]
+    }
+   ],
+   "source": [
+    "#question 7\n",
+    "class Animal:\n",
+    "    def sound(self):\n",
+    "        print(\"Animal: sound\")\n",
+    "class Dog(Animal):\n",
+    "    def sound(self):\n",
+    "        print(\"Dog:    barks\")\n",
+    "a = Animal()\n",
+    "d = Dog()\n",
+    "a.sound()\n",
+    "d.sound()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 52,
+   "id": "0b1eb436-d36b-4efc-8309-9530aba95f96",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, 361, 400, 441, 484, 529, 576, 625, 676, 729, 784, 841, 900, 961, 1024, 1089, 1156, 1225, 1296, 1369, 1444, 1521, 1600, 1681, 1764, 1849, 1936, 2025, 2116, 2209, 2304, 2401, 2500]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#question 8\n",
+    "numbers = list(range(1, 51))\n",
+    "def square(n):\n",
+    "    return n * n\n",
+    "squared_numbers = list(map(square, numbers))\n",
+    "filtered_squares = list(filter(lambda x: True, squared_numbers))\n",
+    "print(filtered_squares)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 77,
+   "id": "2da4b686-985e-46e7-a5b6-af598a09f1a9",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#question 9\n",
+    "class triangle:\n",
+    "    def __init__(self, angle1, angle2, angle3):\n",
+    "        self.angle1 = angle1\n",
+    "        self.angle2 = angle2\n",
+    "        self.angle3 = angle3\n",
+    "t=triangle(60,60,60)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 81,
+   "id": "7256e810-b1dc-4d16-8efc-3cccb94e69d9",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "3\n"
+     ]
+    }
+   ],
+   "source": [
+    "#question 10\n",
+    "class triangle:\n",
+    "    number_of_sides = 3\n",
+    "\n",
+    "t=triangle()\n",
+    "print(t.number_of_sides)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 86,
+   "id": "c4d314e7-57bc-4ec0-9890-d5659b724e10",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Angles belong to a triangle\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "execution_count": 86,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#question 11\n",
+    "class Triangle:\n",
+    "    def __init__(self, angle1, angle2, angle3):\n",
+    "        self.angle1 = angle1\n",
+    "        self.angle2 = angle2\n",
+    "        self.angle3 = angle3\n",
+    "    def check_angles(self):\n",
+    "        if self.angle1 + self.angle2 + self.angle3 == 180:\n",
+    "            print(\"Angles belong to a triangle\")\n",
+    "            return True\n",
+    "        else:\n",
+    "            print(\"Angles do not belong to a triangle\")\n",
+    "            return False\n",
+    "\n",
+    "t = Triangle(60, 60, 60)\n",
+    "t.check_angles()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "63ce1984-71be-4b8b-b1c9-4e08439913d2",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Is isosceles right triangle? False\n"
+     ]
+    }
+   ],
+   "source": [
+    "#question 12\n",
+    "class IsoscelesTriangle:\n",
+    "    def __init__(self, a, b, c):\n",
+    "        self.a, self.b, self.c = a, b, c\n",
+    "    \n",
+    "    def is_isosceles(self):\n",
+    "        return self.a == self.b or self.b == self.c or self.a == self.c\n",
+    "\n",
+    "\n",
+    "class RightTriangle:\n",
+    "    def __init__(self, a, b, c):\n",
+    "        self.a, self.b, self.c = a, b, c\n",
+    "    \n",
+    "    def is_right(self):\n",
+    "        sides = sorted([self.a, self.b, self.c])\n",
+    "        return sides[0]**2 + sides[1]**2 == sides[2]**2\n",
+    "\n",
+    "\n",
+    "class IsoscelesRightTriangle(IsoscelesTriangle, RightTriangle):\n",
+    "    def __init__(self, a, b, c):\n",
+    "        IsoscelesTriangle.__init__(self, a, b, c)\n",
+    "        RightTriangle.__init__(self, a, b, c)\n",
+    "    \n",
+    "    def check(self):\n",
+    "        return self.is_isosceles() and self.is_right()\n",
+    "\n",
+    "\n",
+    "# 🔎 Example\n",
+    "t = IsoscelesRightTriangle(5, 5, (5**2 + 5**2)**0.5)\n",
+    "print(\"Is isosceles right triangle?\", t.check())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "60b35c75-9340-4cd4-b413-4b0fee780be2",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<class '__main__.Myclass'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "class Myclass:\n",
+    "    x=5\n",
+    "print(Myclass)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "0af340a9-86f5-4b26-8998-03ece4a2bf23",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.4"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
