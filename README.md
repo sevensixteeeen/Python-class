@@ -77,3 +77,19 @@ p1.greet()
 - by using self it can also call other method.
 ---
 
+## Python class properties
+>properties are variables that belongs to class. they store data for each object created from class.
+**Ex:**
+```Python
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+p1 = Person("Emil", 36)
+
+print(p1.name)
+print(p1.age)
+```
+### Key Points
+- 
