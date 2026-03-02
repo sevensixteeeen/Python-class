@@ -70,3 +70,10 @@ p1.greet()
 ```
 ---
 
+### Key points
+- Without **self**, Python would not know which object's properties you want to access.
+- Self doesn't have to be named self, you can call it whatever you like, but it has to be the first parameter of any method in the class.
+- accessiblity of any property of the class using **self**.
+- by using self it can also call other method.
+---
+
