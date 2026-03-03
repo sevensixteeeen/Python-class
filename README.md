@@ -51,7 +51,7 @@ print(" Age of the person: ",p1.age)
 
 ## Python self parameter
 > The self parameter is a reference to the current instance of the class.
-> It is used to access properties and methods that belong to to the class.
+> It is used to access properties and methods that belong to the class.
 
 **Ex:**
 ```Python
@@ -91,5 +91,62 @@ p1 = Person("Emil", 36)
 print(p1.name)
 print(p1.age)
 ```
+---
 ### Key Points
-- 
+- properties objects are accessable using dot notation.
+- properties values can be modify on object.
+- deletable using del keywords.
+
+## Class Properties Vs Object Properties
+Properties defined inside __init__() belong to each object (instance properties).
+
+> Properties defined outside methods belong to the class itself (class properties) and are shared by all objects:
+**Ex:**
+```Python
+class Person:
+  species = "Human" # Class property
+
+  def __init__(self, name):
+    self.name = name # Instance property
+
+p1 = Person("Emil")
+p2 = Person("Tobias")
+
+print(p1.name)
+print(p2.name)
+print(p1.species)
+print(p2.species)
+```
+---
+##Key points
+- During modifying class property, it affects all objects.
+- we can add new property to existing objects.
+
+## Class methods 
+Methods are functions that belong to a class. They define the behavior of objects created from the class.
+
+**Ex:**
+```Python
+class Person:
+  def __init__(self, name):
+    self.name = name
+
+  def greet(self):
+    print("Hello, my name is " + self.name)
+
+p1 = Person("Emil")
+p1.greet()
+```
+
+Note: All methods must have self as the first parameter.
+
+---
+
+### Key points
+- Method can be accept parameters just like regular function.
+- Methods can access and modify object properties using self.
+- Methods can modify the properties of an object.
+- The __str__() method is a special method that controls what is returned when the object is printed.
+- A class can have multiple methods that work together.
+- You can delete methods from a class using the del keyword.
+
