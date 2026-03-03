@@ -149,4 +149,3 @@ Note: All methods must have self as the first parameter.
 - The __str__() method is a special method that controls what is returned when the object is printed.
 - A class can have multiple methods that work together.
 - You can delete methods from a class using the del keyword.
-
