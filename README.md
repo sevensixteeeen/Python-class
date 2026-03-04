@@ -98,9 +98,10 @@ print(p1.age)
 - deletable using del keywords.
 
 ## Class Properties Vs Object Properties
-Properties defined inside __init__() belong to each object (instance properties).
+**Class properties** belong to the class itself. they shared across all objects created from class. if you change a class properties, the change is reflected in every instance(unless the instance overrides it.)
 
-> Properties defined outside methods belong to the class itself (class properties) and are shared by all objects:
+**Object properrties** belong to a specific instance of the class. they are unique to each object, so changing one object's property does not affect others.
+
 **Ex:**
 ```Python
 class Person:
@@ -149,3 +150,4 @@ Note: All methods must have self as the first parameter.
 - The __str__() method is a special method that controls what is returned when the object is printed.
 - A class can have multiple methods that work together.
 - You can delete methods from a class using the del keyword.
+
