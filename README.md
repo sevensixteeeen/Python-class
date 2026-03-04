@@ -117,6 +117,24 @@ print(p1.name)
 print(p2.name)
 print(p1.species)
 print(p2.species)
+---
+
+class Car:
+    wheels = 4  # class property
+
+    def __init__(self, brand):
+        self.brand = brand  # object property
+
+car1 = Car("Toyota")
+car2 = Car("Honda")
+
+print("no. of wheels in cars are ",Car.wheels)   # 4 (class property)
+print("Barnd name: ",car1.brand)   # Toyota (object property)
+print("Barnd name: ",car2.brand)   # Honda (object property)
+
+Car.wheels = 6
+print("no. of wheels in cars are ",car1.wheels)  # 6 (shared change)
+print("no. of wheels in cars are ",car2.wheels)  # 6 (shared change)
 ```
 ---
 ##Key points
@@ -150,4 +168,5 @@ Note: All methods must have self as the first parameter.
 - The __str__() method is a special method that controls what is returned when the object is printed.
 - A class can have multiple methods that work together.
 - You can delete methods from a class using the del keyword.
+
 
