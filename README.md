@@ -320,7 +320,7 @@ Because of polymorphism we can execute the same method for all classes.
 ## Python Encapsulation
 >Encapsulation is about protecting data inside a class. It means keeping data (properties) and methods together in a class, while controlling how the data can be accessed from outside the class,This prevents accidental changes to your data and hides the internal details of how your class works.
 
-##Private properties
+## Private properties
 In Python, you can make properties private by using a double underscore __ prefix:
 **Ex:**
 ```Python
@@ -336,7 +336,9 @@ print(p1.__age)  # This will cause an error
 
 Note: Private properties cannot be accessed directly from outside the class.
 
-##Get private property value
+
+## Get private property value
+
 To access a private property, you can create a getter method:
 
 **Ex:**
