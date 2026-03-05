@@ -355,4 +355,113 @@ p1 = Person("Tobias", 25)
 print(p1.get_age())
 ```
 
+## Why use encapsulation?
+Encapsulation provides several benefits:
+
+- **Data Protection:** Prevents accidental modification of data.
+- **Validation:** You can validate data before setting it.
+- **Flexibility:** Internal implementation can change without affecting external code.
+- **Control:** You have full control over how data is accessed and modified.
+
+**Ex:**
+```Python
+class Student:
+  def __init__(self, name):
+    self.name = name
+    self.__grade = 0
+
+  def set_grade(self, grade):
+    if 0 <= grade <= 100:
+      self.__grade = grade
+    else:
+      print("Grade must be between 0 and 100")
+
+  def get_grade(self):
+    return self.__grade
+
+  def get_status(self):
+    if self.__grade >= 60:
+      return "Passed"
+    else:
+      return "Failed"
+
+student = Student("Emil")
+student.set_grade(85)
+print(student.get_grade())
+print(student.get_status())
+```
+---
+
+## Protected Properties
+Python also has a convention for protected properties using a single underscore _ prefix:
+
+**Ex:**
+```Python
+class Person:
+  def __init__(self, name, salary):
+    self.name = name
+    self._salary = salary # Protected property
+
+p1 = Person("Linus", 50000)
+print(p1.name)
+print(p1._salary) # Can access, but shouldn't
+```
+---
+
+Note: A single underscore _ is just a convention. It tells other programmers that the property is intended for internal use, but Python doesn't enforce this restriction.
+
+## Private Methods
+You can also make methods private using the double underscore prefix:
+
+**Ex:**
+```Python
+class Calculator:
+  def __init__(self):
+    self.result = 0
+
+  def __validate(self, num):
+    if not isinstance(num, (int, float)):
+      return False
+    return True
+
+  def add(self, num):
+    if self.__validate(num):
+      self.result += num
+    else:
+      print("Invalid number")
+
+calc = Calculator()
+calc.add(10)
+calc.add(5)
+print(calc.result)
+# calc.__validate(5) # This would cause an error
+```
+---
+
+Note: Just like private properties with double underscores, private methods cannot be called directly from outside the class. The __validate method can only be used by other methods inside the class.
+
+## Nmae Mangling
+Name mangling is how Python implements private properties and methods.
+
+When you use double underscores __, Python automatically renames it internally by adding _ClassName in front.
+
+For example, __age becomes _Person__age.
+
+**Ex:**
+```Python
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.__age = age
+
+p1 = Person("Emil", 30)
+
+# This is how Python mangles the name:
+print(p1._Person__age) # Not recommended!
+```
+---
+
+Note: While you can access private properties using the mangled name, it's not recommended. It defeats the purpose of encapsulation.
+
+
 
