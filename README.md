@@ -137,7 +137,8 @@ print("no. of wheels in cars are ",car1.wheels)  # 6 (shared change)
 print("no. of wheels in cars are ",car2.wheels)  # 6 (shared change)
 ```
 ---
-##Key points
+
+## Key points
 - During modifying class property, it affects all objects.
 - we can add new property to existing objects.
 
@@ -176,7 +177,7 @@ inheritance allows us to define a class that inherita all the methods and proper
 
 **Child class** is the class that inherits from another class, also called derived class.
 
-###creating a parent class
+### Creating a parent class
 ```Python
 class Person:
   def __init__(self, fname, lname):
