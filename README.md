@@ -177,6 +177,9 @@ inheritance allows us to define a class that inherita all the methods and proper
 
 **Child class** is the class that inherits from another class, also called derived class.
 
+<img width="1123" height="630" alt="image" src="https://github.com/user-attachments/assets/5859cffd-e51a-4c1a-802f-f251c15b244c" />
+
+
 ### Creating a parent class
 ```Python
 class Person:
